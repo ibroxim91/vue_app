@@ -57,7 +57,11 @@ export default {
         axios.get('/api/users').then( response => {
           console.log(response.data); 
         this.users = response.data;
-      })
+      }).catch( error => {
+        console.log(error);
+        alert("Unable to fetch data. Please check your network connection")
+        this.$router.push('/login')
+      } );
       }
   },
 
